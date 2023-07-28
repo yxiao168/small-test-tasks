@@ -1,0 +1,145 @@
+Sending build context to Docker daemon  355.3kB
+Step 1/6 : FROM node:16
+ ---> 81c6e5ef93fc
+Step 2/6 : WORKDIR /usr/src/app
+ ---> Using cache
+ ---> d84209ec7813
+Step 3/6 : COPY . /usr/src/app
+ ---> Using cache
+ ---> 0f682c298bb5
+Step 4/6 : RUN npm install
+ ---> Using cache
+ ---> e857d61eb0d3
+Step 5/6 : EXPOSE 5001
+ ---> Using cache
+ ---> 2642db40cf0e
+Step 6/6 : CMD [ "npm", "start" ]
+ ---> Using cache
+ ---> 7938783c38d1
+Successfully built 7938783c38d1
+Successfully tagged 02_nodejs-app:latest
+Attaching to promtail, loki, grafana, nodejs-app
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962178941Z level=info msg="Starting Grafana" version=10.0.3 commit=eb8dd72637 branch=HEAD compiled=2023-07-25T17:55:59Z
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962380369Z level=warn msg="\"sentry\" frontend logging provider is deprecated and will be removed in the next major version. Use \"grafana\" provider instead."
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962392239Z level=info msg="Config loaded from" file=/usr/share/grafana/conf/defaults.ini
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962398657Z level=info msg="Config loaded from" file=/etc/grafana/grafana.ini
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962403107Z level=info msg="Config overridden from command line" arg="default.paths.data=/var/lib/grafana"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962407307Z level=info msg="Config overridden from command line" arg="default.paths.logs=/var/log/grafana"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962411473Z level=info msg="Config overridden from command line" arg="default.paths.plugins=/var/lib/grafana/plugins"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962415644Z level=info msg="Config overridden from command line" arg="default.paths.provisioning=/etc/grafana/provisioning"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962419856Z level=info msg="Config overridden from command line" arg="default.log.mode=console"
+[33mloki          |[0m level=warn ts=2023-07-28T15:31:30.996199774Z caller=loki.go:286 msg="per-tenant timeout not configured, using default engine timeout (\"5m0s\"). This behavior will change in the next major to always use the default per-tenant timeout (\"5m\")."
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.997214193Z caller=main.go:108 msg="Starting Loki" version="(version=2.8.3, branch=HEAD, revision=0d81144cf)"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.99770416Z caller=server.go:323 http=[::]:3100 grpc=[::]:9095 msg="server listening on addresses"
+[33mloki          |[0m level=warn ts=2023-07-28T15:31:30.999313194Z caller=cache.go:114 msg="fifocache config is deprecated. use embedded-cache instead"
+[33mloki          |[0m level=warn ts=2023-07-28T15:31:30.999338808Z caller=experimental.go:20 msg="experimental feature in use" feature="In-memory (FIFO) cache - chunksembedded-cache"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.999647069Z caller=table_manager.go:262 msg="query readiness setup completed" duration=1.545µs distinct_users_len=0
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.999670285Z caller=table_manager.go:134 msg="uploading tables"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.999683357Z caller=shipper.go:131 msg="starting index shipper in RW mode"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.999771435Z caller=shipper_index_client.go:78 msg="starting boltdb shipper in RW mode"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:30.99983458Z caller=table_manager.go:166 msg="handing over indexes to shipper"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.001228513Z caller=mapper.go:47 msg="cleaning up mapped rules directory" path=/loki/rules-temp
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.003298797Z caller=worker.go:112 msg="Starting querier worker using query-scheduler and scheduler ring for addresses"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005504794Z caller=module_service.go:82 msg=initialising module=server
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005540169Z caller=module_service.go:82 msg=initialising module=cache-generation-loader
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005596822Z caller=module_service.go:82 msg=initialising module=query-frontend-tripperware
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005616151Z caller=module_service.go:82 msg=initialising module=memberlist-kv
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005656817Z caller=module_service.go:82 msg=initialising module=query-scheduler-ring
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005660366Z caller=module_service.go:82 msg=initialising module=ring
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005670344Z caller=module_service.go:82 msg=initialising module=store
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005761689Z caller=ring.go:263 msg="ring doesn't exist in KV store yet"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005764425Z caller=ring.go:263 msg="ring doesn't exist in KV store yet"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005775608Z caller=basic_lifecycler.go:261 msg="instance not found in the ring" instance=6281e3c2927c ring=scheduler
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005792875Z caller=basic_lifecycler_delegates.go:63 msg="not loading tokens from file, tokens file path is empty"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005806162Z caller=module_service.go:82 msg=initialising module=ingester-querier
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005801832Z caller=client.go:255 msg="value is nil" key=collectors/scheduler index=1
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005810587Z caller=module_service.go:82 msg=initialising module=usage-report
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005821478Z caller=client.go:255 msg="value is nil" key=collectors/ring index=1
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.00589914Z caller=module_service.go:82 msg=initialising module=compactor
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005909008Z caller=module_service.go:82 msg=initialising module=ruler
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005906726Z caller=ringmanager.go:201 msg="waiting until scheduler is JOINING in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005916541Z caller=ruler.go:499 msg="ruler up and running"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005915535Z caller=ringmanager.go:205 msg="scheduler is JOINING in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005915045Z caller=module_service.go:82 msg=initialising module=distributor
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005927827Z caller=module_service.go:82 msg=initialising module=ingester
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005939891Z caller=lifecycler.go:547 msg="not loading tokens from file, tokens file path is empty"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005950449Z caller=ingester.go:416 msg="recovering from checkpoint"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005956055Z caller=ringmanager.go:214 msg="waiting until scheduler is ACTIVE in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005967924Z caller=basic_lifecycler.go:261 msg="instance not found in the ring" instance=6281e3c2927c ring=compactor
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005980412Z caller=basic_lifecycler_delegates.go:63 msg="not loading tokens from file, tokens file path is empty"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.005998371Z caller=ring.go:263 msg="ring doesn't exist in KV store yet"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006025538Z caller=recovery.go:40 msg="no checkpoint found, treating as no-op"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006032435Z caller=lifecycler.go:576 msg="instance not found in ring, adding with no tokens" ring=distributor
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006064293Z caller=compactor.go:332 msg="waiting until compactor is JOINING in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006080423Z caller=lifecycler.go:416 msg="auto-joining cluster after timeout" ring=distributor
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006085769Z caller=ingester.go:432 msg="recovered WAL checkpoint recovery finished" elapsed=141.561µs errors=false
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006108033Z caller=ingester.go:438 msg="recovering from WAL"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006432242Z caller=ingester.go:454 msg="WAL segment recovery finished" elapsed=489.513µs errors=false
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006440634Z caller=ingester.go:402 msg="closing recoverer"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006446312Z caller=ingester.go:410 msg="WAL recovery finished" time=503.582µs
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006469237Z caller=wal.go:156 msg=started component=wal
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006497439Z caller=lifecycler.go:547 msg="not loading tokens from file, tokens file path is empty"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006530121Z caller=lifecycler.go:576 msg="instance not found in ring, adding with no tokens" ring=ingester
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.006570909Z caller=lifecycler.go:416 msg="auto-joining cluster after timeout" ring=ingester
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.107332222Z caller=ringmanager.go:218 msg="scheduler is ACTIVE in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.107454802Z caller=module_service.go:82 msg=initialising module=query-scheduler
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.107629498Z caller=module_service.go:82 msg=initialising module=query-frontend
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.107780639Z caller=module_service.go:82 msg=initialising module=querier
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.137647198Z caller=compactor.go:336 msg="compactor is JOINING in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.137880101Z caller=compactor.go:346 msg="waiting until compactor is ACTIVE in the ring"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962424419Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_DATA=/var/lib/grafana"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962429189Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_LOGS=/var/log/grafana"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962433149Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_PLUGINS=/var/lib/grafana/plugins"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.284563392Z caller=compactor.go:350 msg="compactor is ACTIVE in the ring"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:31.284646733Z caller=loki.go:500 msg="Loki started"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962437347Z level=info msg="Config overridden from Environment variable" var="GF_PATHS_PROVISIONING=/etc/grafana/provisioning"
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962441548Z level=info msg=Target target=[all]
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962453684Z level=info msg="Path Home" path=/usr/share/grafana
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.96245777Z level=info msg="Path Data" path=/var/lib/grafana
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962462106Z level=info msg="Path Logs" path=/var/log/grafana
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.96246638Z level=info msg="Path Plugins" path=/var/lib/grafana/plugins
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.962470529Z level=info msg="Path Provisioning" path=/etc/grafana/provisioning
+[36mgrafana       |[0m logger=settings t=2023-07-28T15:31:31.96247461Z level=info msg="App mode production"
+[36mgrafana       |[0m logger=sqlstore t=2023-07-28T15:31:31.962662122Z level=info msg="Connecting to DB" dbtype=sqlite3
+[36mgrafana       |[0m logger=migrator t=2023-07-28T15:31:31.977626207Z level=info msg="Starting DB migrations"
+[36mgrafana       |[0m logger=migrator t=2023-07-28T15:31:31.982658431Z level=info msg="migrations completed" performed=0 skipped=485 duration=537.381µs
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:08.604539427Z caller=promtail.go:133 msg="Reloading configuration file" md5sum=533f93bcf050630a22eab11425b4ea3f
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:08.604968595Z caller=server.go:323 http=[::]:9080 grpc=[::]:41691 msg="server listening on addresses"
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:08.605106692Z caller=main.go:174 msg="Starting Promtail" version="(version=2.8.3, branch=HEAD, revision=0d81144cf)"
+[35mpromtail      |[0m level=warn ts=2023-07-28T15:30:08.605121943Z caller=promtail.go:265 msg="enable watchConfig"
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:13.605100725Z caller=filetargetmanager.go:358 msg="Adding target" key="/var/log/*log:{job=\"varlogs\"}"
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:13.60571644Z caller=filetarget.go:285 msg="watching new directory" directory=/var/log
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:13.605918102Z caller=tailer.go:143 component=tailer msg="tail routine: started" path=/var/log/dpkg.log
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:13.606022408Z caller=tailer.go:143 component=tailer msg="tail routine: started" path=/var/log/faillog
+[35mpromtail      |[0m level=info ts=2023-07-28T15:30:13.606106927Z caller=tailer.go:143 component=tailer msg="tail routine: started" path=/var/log/lastlog
+[35mpromtail      |[0m ts=2023-07-28T15:30:13.606089196Z caller=log.go:168 level=info msg="Seeked /var/log/dpkg.log - &{Offset:0 Whence:0}"
+[35mpromtail      |[0m ts=2023-07-28T15:30:13.606099578Z caller=log.go:168 level=info msg="Seeked /var/log/faillog - &{Offset:0 Whence:0}"
+[35mpromtail      |[0m ts=2023-07-28T15:30:13.606175361Z caller=log.go:168 level=info msg="Seeked /var/log/lastlog - &{Offset:0 Whence:0}"
+[36mgrafana       |[0m logger=secrets t=2023-07-28T15:31:31.983168252Z level=info msg="Envelope encryption state" enabled=true currentprovider=secretKey.v1
+[36mgrafana       |[0m logger=local.finder t=2023-07-28T15:31:32.028383898Z level=warn msg="Skipping finding plugins as directory does not exist" path=/usr/share/grafana/plugins-bundled
+[36mgrafana       |[0m logger=query_data t=2023-07-28T15:31:32.030206447Z level=info msg="Query Service initialization"
+[36mgrafana       |[0m logger=live.push_http t=2023-07-28T15:31:32.032531616Z level=info msg="Live Push Gateway initialization"
+[32mnodejs-app    |[0m 
+[32mnodejs-app    |[0m > node-js-getting-started@0.3.0 start
+[32mnodejs-app    |[0m > node index.js
+[32mnodejs-app    |[0m 
+[32mnodejs-app    |[0m Listening on 5001
+[36mgrafana       |[0m logger=infra.usagestats.collector t=2023-07-28T15:31:33.107708782Z level=info msg="registering usage stat providers" usageStatsProvidersLen=2
+[36mgrafana       |[0m logger=provisioning.alerting t=2023-07-28T15:31:33.107909465Z level=info msg="starting to provision alerting"
+[36mgrafana       |[0m logger=provisioning.alerting t=2023-07-28T15:31:33.107916219Z level=info msg="finished to provision alerting"
+[36mgrafana       |[0m logger=ngalert.state.manager t=2023-07-28T15:31:33.107980213Z level=info msg="Warming state cache for startup"
+[36mgrafana       |[0m logger=modules t=2023-07-28T15:31:33.108047866Z level=warn msg="No modules registered..."
+[36mgrafana       |[0m logger=ngalert.state.manager t=2023-07-28T15:31:33.108129812Z level=info msg="State cache has been initialized" states=0 duration=148.558µs
+[36mgrafana       |[0m logger=grafanaStorageLogger t=2023-07-28T15:31:33.108143849Z level=info msg="storage starting"
+[36mgrafana       |[0m logger=ngalert.multiorg.alertmanager t=2023-07-28T15:31:33.108198891Z level=info msg="starting MultiOrg Alertmanager"
+[36mgrafana       |[0m logger=ticker t=2023-07-28T15:31:33.108271917Z level=info msg=starting first_tick=2023-07-28T15:31:40Z
+[36mgrafana       |[0m logger=http.server t=2023-07-28T15:31:33.110570155Z level=info msg="HTTP Server Listen" address=[::]:3000 protocol=http subUrl= socket=
+[36mgrafana       |[0m logger=grafana.update.checker t=2023-07-28T15:31:33.14838711Z level=info msg="Update check succeeded" duration=40.217554ms
+[36mgrafana       |[0m logger=plugins.update.checker t=2023-07-28T15:31:33.206766163Z level=info msg="Update check succeeded" duration=98.697249ms
+[33mloki          |[0m level=info ts=2023-07-28T15:31:34.107675685Z caller=scheduler.go:599 msg="this scheduler is in the ReplicationSet, will now accept requests."
+[33mloki          |[0m level=info ts=2023-07-28T15:31:34.108935007Z caller=worker.go:209 msg="adding connection" addr=172.18.0.2:9095
+[33mloki          |[0m level=info ts=2023-07-28T15:31:36.285515158Z caller=compactor.go:411 msg="this instance has been chosen to run the compactor, starting compactor"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:36.285676769Z caller=compactor.go:440 msg="waiting 10m0s for ring to stay stable and previous compactions to finish before starting compactor"
+[33mloki          |[0m level=info ts=2023-07-28T15:31:41.108413743Z caller=frontend_scheduler_worker.go:107 msg="adding connection to scheduler" addr=172.18.0.2:9095
+[33mloki          |[0m level=info ts=2023-07-28T15:32:31.000810184Z caller=table_manager.go:166 msg="handing over indexes to shipper"
+[33mloki          |[0m level=info ts=2023-07-28T15:32:31.000838806Z caller=table_manager.go:134 msg="uploading tables"
